@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+{% load static%}
+
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Jitendra-Jeena</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <style>
+      body{
+        background-color:#e8e4da;
+      }
+      h3{
+           padding-bottom:10px;
+           padding-top:10px;
+          }
+       .navbar {
+          border-bottom: 1px solid black;
+        }
+
+    </style>
+  </head>
+
+<main role="main">
+  <!------------------------------------ START----NAVBAR----------------------------------------------->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white ">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" >
+                <span class="navbar-toggler-icon"></span>
+          </button>
+         <a class="navbar-brand" href="#">
+            <img src="{% static 'main_logo.jpg' %}" width="30" height="30" alt="">
+        </a>
+
+          <div class="collapse navbar-collapse" id="main_navbar">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item active">
+                    <a class="nav-link"  href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'projects' %}">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="{% url 'certificates' %}">Certificates</a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="{% url 'skills' %}" >Skills</a>
+                  </li>
+                   <li class="nav-item">
+                    <a class="nav-link " href="{% url 'my_cv' %}" target="_blank">Get CV</a>
+                  </li>
+
+                </ul>
+
+          </div>
+    </nav>
+  <!-------------------------------------END---NAVBAR------------------------------------------------------>
+
+
+
+  <section class="jumbotron text-center" style="background-image: url({% static 'background.png' %}); ;">
+    <div class="container">
+
+     <!------------------------------------INTRODUCTION----------------------------------->
+
+      <p class="pt-5">
+        <img src="{% static 'myimage.png' %}" style="width:200px; border-radius:50%">
+      </p>
+      <h3 class="text-white ">Jitendra Singh Jeena</h3>
+      <p class=" lead text-white "> Student &nbsp; <font size="5px">|</font> &nbsp; India </p>
+      <p class="lead text-white ">To strive for excellence in learning and implementing newest technologies with dedication, focus, proactive approach and positive attitude by getting my knowledge and skills into use in a best possible manner.
+      </p>
+
+      <!-----------------------------------SKILLS--------------------------------------------->
+      <p>
+          {% for skill in skills.all%}
+        <span class=" badge badge-pill badge-light" style="height=100px;">{{skill.name}}</span>
+        {%endfor%}
+      </p>
+    </div>
+
+  <!----------------------------------------------ABOUT ME-------------------------------------->
+  </section>
+
+
+</main>
+</html>
+
+
+
+</main>
+
+<!-- Bootstrap core JavaScript
+   ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="{% static 'jquery-3.3.1.min.js' %}" ></script>
+<script src="{% static 'js/bootstrap.js' %}" ></script>

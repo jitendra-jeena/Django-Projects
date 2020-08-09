@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html lang="en">
+{% load static%}
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>My-Projects</title>
+    <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+  </head>
+  <body>
+      <!-- Dont remove id filters -->
+
+
+
+<!--  Dont remove class grid -->
+ <div id="filters" class="container-fluid mb-5 mt-4">
+         <button  class="btn" onclick="location.href='{{home_link}}'" type="button">
+            Home</button>
+          <button class="btn" aria-pressed="true" data-filter="*">All</button>
+          <button class="btn" data-filter=".ML">Machiene Learning</button>
+          <button class="btn" data-filter=".Flask">Flask</button>
+          <button class="btn" data-filter=".Django">Django</button>
+          <button class="btn" data-filter=".Python">Python</button>
+          <button class="btn" data-filter=".Web">Web Application</button>
+        </div>
+
+       <div class="container" >
+
+
+
+
+               {% for project in projects.all %}
+
+                    <div class="card element-item {{project.tags}} z3" data-category="{{project.tags}} "  style="margin-right:20px">
+                        <div class="face face1">
+                            <div class="content"><center>
+                                <img src="{{ project.image.url }} ">
+                          </center>
+                                <h3>{{project.title}}</h3>
+                            </div>
+                        </div>
+                        <div class="face face2">
+                            <div class="content">
+                                <p>{{project.description}}</p>
+                                    <a href= "{{project.link}}" target="_blank">Git Link</a>
+                            </div>
+                        </div>
+                    </div>
+
+                 {%endfor%}
+
+
+      </div>
+
+
+
+    <script src="{% static 'jquery-3.3.1.min.js' %}" ></script>
+    <script src="{% static 'js/bootstrap.js' %}" ></script>
+
+    <script src="{% static 'js/isotope.pkgd.min.js' %}" ></script>
+    <script src="{%static 'js/projects.js' %}"></script>
+
+
+ </body>
+</html>
+
